@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color palette - ScreenSage brand tokens (Calm, Credible, Developer-focused) */
+  --color-bg-base: #09090b;       /* zinc-950 - Near black background */
+  --color-bg-surface: #18181b;    /* zinc-900 - Elevated charcoal surface */
+  --color-bg-surface-hover: #27272a; /* zinc-800 */
+  --color-border-subtle: #27272a; /* zinc-800 - Subtle border */
+  --color-border-focus: #3b82f6;  /* blue-500 - Restrained cool accent color */
+  
+  --color-text-primary: #f4f4f5;  /* zinc-100 - Primary copy text */
+  --color-text-secondary: #a1a1aa;/* zinc-500 - Secondary label text */
+  --color-text-muted: #71717a;    /* zinc-400 */
+  --color-text-accent: #60a5fa;   /* blue-400 - Calm cool text brand highlight */
+  --color-text-error: #ef4444;    /* red-500 */
+  
+  /* Focus indicator and radii */
+  --radius-md: 6px;
+  --radius-lg: 8px;
+}
+
+:root {
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+  color-scheme: dark;
+}
+
+body {
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  background-color: var(--color-bg-base);
+  color: var(--color-text-primary);
+}
+
+/* Accessible focus ring utility */
+.focus-ring {
+  outline: none;
+  transition: box-shadow 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+.focus-ring:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--color-bg-base), 0 0 0 4px var(--color-border-focus);
+  border-color: var(--color-border-focus);
+}
+
+/* Reduced motion preference support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
